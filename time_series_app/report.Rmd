@@ -1,0 +1,38 @@
+---
+title: "Times series report for Annuity Johnson management"
+output:
+  html_document:
+    toc: true
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+author: 'Shaun'
+---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE)
+```
+
+# Annuity Johnson
+
+```{r, echo = FALSE}
+load('report_info.RData')
+
+t1 <- forcast_table %>%  kable(format="html" ,escape = F,caption ="Table 1: Forcasted total sales volume" ) %>%
+  kable_styling(c("stripped","bordered"),position = "center", full_width = F,font_size = 11) %>%
+  footnote(general = "Some general comments for table. ",
+           symbol = c("** note the following")
+           )
+```
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+invisible(tryCatch({t1 %>%save_kable("forcasts.pdf")}, error = function(e) {#do nothing
+  }))
+```
+
+![](forcasts.pdf){width=110%}
+![](plot.pdf){width=110%}","\n")
+
