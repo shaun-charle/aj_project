@@ -28,7 +28,7 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 Run the following command in your terminal:
 
 ```sh
-$docker run -p3838:3838 shauncharle/time_series_app:latest
+$ docker run -p3838:3838 shauncharle/time_series_app:latest
 ```
 
 ### C. Use the application
