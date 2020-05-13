@@ -1,18 +1,19 @@
 #Load Libraries
 library(forecast)
 library(dplyr)
+library(kableExtra)
 
 model_function <- function(data){
 #data <- read.csv('data/Data-sales.csv')
 data$date <- as.Date(data$Date,format='%d/%m/%Y')
 data <- data%>%mutate(sales_volume=Volume*UnitPrice)
-agg_data <- data%>%select(date, sales_volume)%>%group_by(date)%>%summarise(daily_sales_volume = sum(sales_volume))
+agg_data <- data%>%select(date, Volume)%>%group_by(date)%>%summarise(daily_sales_volume = sum(Volume))
 
 ## Create a time series object
 ts_agg_data <- ts(agg_data$daily_sales_volume, start = c(2019, 1),
                   frequency = 365)
-plot(ts_agg_data)
-fitARIMA<-forecast::Arima(ts_agg_data, order=c(1,1,1),seasonal = list(order = c(1,1,0), period = 24),method="ML")
+# plot(ts_agg_data)
+fitARIMA<-forecast::Arima(ts_agg_data, order=c(1,1,1),seasonal = list(order = c(1,1,0), period = 24),method="CSS")
 fitARIMA
 
 #forcast future values

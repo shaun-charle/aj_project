@@ -1,9 +1,10 @@
-# Run times series analysis for total sales_volume forcast
+# Run time-series analysis for total sales_volume forcast
 
 ### A. First you will need to install docker
 
 *Windows*:
 
+* If you have a windows version older than windows 10 then download docker toolbox from this [link](https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe)
 * Install docker from this [link](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe);
 * Open a terminal window (Command Prompt or PowerShell, but not PowerShell ISE).
 * Run the command `docker --version` to ensure that you have a supported version of Docker:

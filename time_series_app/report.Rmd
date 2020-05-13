@@ -17,22 +17,30 @@ knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE)
 ```
 
-# Annuity Johnson
+
 
 ```{r, echo = FALSE}
 load('report_info.RData')
 
-t1 <- forcast_table %>%  kable(format="html" ,escape = F,caption ="Table 1: Forcasted total sales volume" ) %>%
-  kable_styling(c("stripped","bordered"),position = "center", full_width = F,font_size = 11) %>%
-  footnote(general = "Some general comments for table. ",
-           symbol = c("** note the following")
+t1 <- forcast_table %>%  kableExtra::kable(format="html" ,escape = F,caption ="Table 1: Forcasted total sales volume" ) %>%
+  kableExtra::kable_styling(c("stripped","bordered"),position = "center", full_width = F,font_size = 20) %>%
+  kableExtra::footnote(general = "Sales volume is aggregated daily",
+           symbol = c("** The ARIMA model was checked for stationarity")
            )
 ```
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-invisible(tryCatch({t1 %>%save_kable("forcasts.pdf")}, error = function(e) {#do nothing
+invisible(tryCatch({t1 %>%kableExtra::save_kable("forcasts.pdf")}, error = function(e) {#do nothing
   }))
 ```
 
-![](forcasts.pdf){width=110%}
-![](plot.pdf){width=110%}","\n")
+
+### Time Series plot and forcast using Arima
+The ARIMA Model shows the forcasted sales volume (blue thick line) along with a 95% confidence band. The datefield `x` is a time series object but can be clearly extracted from the table below.
+![](plot.pdf){width=110%}
+
+### 30 Day sales volume forcast table
+![](forcasts.pdf){width=170%}
+
+
+
 

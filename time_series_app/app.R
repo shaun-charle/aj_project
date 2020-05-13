@@ -1,5 +1,5 @@
 library(shiny)
-library(magick)
+#library(magick)
 library(kableExtra)
 library(rmarkdown)
 options(shiny.maxRequestSize=30*1024^2)
