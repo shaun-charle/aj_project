@@ -4,7 +4,7 @@
 
 *Windows*:
 
-* If you have a windows version older than windows 10 then download docker *toolbox* from this [link](https://github.com/docker/toolbox/releases/download/v18.01.0-ce/DockerToolbox-18.01.0-ce.exe)
+* If you have a windows version older than windows 10 then download docker *toolbox* from this [link](https://github.com/docker/toolbox/releases/download/v18.09.3/DockerToolbox-18.09.3.exe)
 * Otherwise install *docker* desktop from this [link](https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe);
 * Open a terminal window (Command Prompt or PowerShell, but not PowerShell ISE).
 * Run the command `docker --version` to ensure that you have a supported version of Docker:
