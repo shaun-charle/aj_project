@@ -41,9 +41,8 @@ RUN R -e "webshot::install_phantomjs()"
 # copy the app to the image
 RUN mkdir /root/time_series_app
 COPY time_series_app /root/time_series_app
-
 COPY Rprofile.site /usr/lib/R/etc/
 
 EXPOSE 3838
 
-CMD ["R", "-e", "shiny::runApp('/root/time_series_app')"]
+CMD ["R", "-e", "shiny::runApp('/root/time_series_app', host='0.0.0.0', port=3838)"]

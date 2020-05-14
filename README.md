@@ -36,5 +36,3 @@ $ docker run -p3838:3838 shauncharle/time_series_app:latest
 Go to your browser and type the following URL: 
 
 `localhost:3838`
-
-################### END #######################

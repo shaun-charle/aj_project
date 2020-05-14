@@ -1,10 +1,10 @@
 ---
-title: "Times series report for Annuity Johnson management"
+title: "Times series report for Buy-a-lot management"
 output:
   html_document:
     toc: true
 date: '`r format(Sys.time(), "%d %B, %Y")`'
-author: 'Shaun'
+author: 'Sean'
 ---
 
 ```{r, include=FALSE}
@@ -28,6 +28,7 @@ t1 <- forcast_table %>%  kableExtra::kable(format="html" ,escape = F,caption ="T
            symbol = c("** The ARIMA model was checked for stationarity")
            )
 ```
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 invisible(tryCatch({t1 %>%kableExtra::save_kable("forcasts.pdf")}, error = function(e) {#do nothing
   }))
@@ -36,9 +37,11 @@ invisible(tryCatch({t1 %>%kableExtra::save_kable("forcasts.pdf")}, error = funct
 
 ### Time Series plot and forcast using Arima
 The ARIMA Model shows the forcasted sales volume (blue thick line) along with a 95% confidence band. The datefield `x` is a time series object but can be clearly extracted from the table below.
+
 ![](plot.pdf){width=110%}
 
 ### 30 Day sales volume forcast table
+
 ![](forcasts.pdf){width=170%}
 
 
